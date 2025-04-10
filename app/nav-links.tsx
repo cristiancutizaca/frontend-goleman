@@ -1,89 +1,79 @@
 "use client";
 
-import React, { memo, useState, ReactNode } from "react";
+import React, { memo, useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiLock } from "react-icons/fi";
+
+interface DropdownItem {
+  name: string;
+  href: string;
+}
 
 interface NavLinkItem {
   name: string;
   href: string;
   isBlocked?: boolean;
-  dropdownContent?: ReactNode;
+  dropdownContent?: DropdownItem[];
 }
 
 const links: NavLinkItem[] = [
   {
     name: "Inicio",
     href: "/",
-    // No dropdownContent aquí
   },
   {
     name: "Nosotros",
-    href: "/diplomados",
-    dropdownContent: (
-      <div>
-        <p>Nuestra </p>
-        <p>equipo pedagógico
-
-        </p>
-        <p>Los líderes</p>
-      </div>
-    ),
+    href: "/app",
+    dropdownContent: [
+      { name: "Nuestra Escuela", href: "/school" },
+      { name: "Equipo Pedagógico", href: "/nosotros/equipo" },
+      { name: "Los líderes", href: "/nosotros/lideres" },
+    ],
   },
   {
     name: "Niveles",
     href: "/certs",
-    dropdownContent: (
-      <div>
-        <p>Inicial</p>
-        <p>Primaria</p>
-        <p>Secundaria</p>
-      </div>
-    ),
+    dropdownContent: [
+      { name: "Inicial", href: "/niveles/inicial" },
+      { name: "Primaria", href: "/niveles/primaria" },
+      { name: "Secundaria", href: "/niveles/secundaria" },
+    ],
   },
   {
     name: "Propuesta Educativa",
     href: "/curs",
     isBlocked: false,
-    dropdownContent: (
-      <div>
-        <p>contactanos</p>
-        <p>admision</p>
-        <p>Teléfonos</p>
-      </div>
-    ),
+    dropdownContent: [
+      { name: "Contáctanos", href: "/contacto" },
+      { name: "Admisión", href: "/admision" },
+      { name: "Teléfonos", href: "/contacto/telefonos" },
+    ],
   },
   {
     name: "Contacto",
     href: "/#footer",
-    dropdownContent: (
-      <div>
-        <p>Formulario</p>
-        <p>Mapa</p>
-        <p>Teléfonos</p>
-      </div>
-    ),
+    dropdownContent: [
+      { name: "Formulario", href: "/contacto/formulario" },
+      { name: "Mapa", href: "/contacto/mapa" },
+      { name: "Teléfonos", href: "/contacto/telefonos" },
+    ],
   },
   {
     name: "Blog",
     href: "/#footer",
-    dropdownContent: (
-      <div>
-        <p>Artículos recientes</p>
-        <p>Eventos</p>
-      </div>
-    ),
+    dropdownContent: [
+      { name: "Artículos recientes", href: "/blog" },
+      { name: "Eventos", href: "/eventos" },
+    ],
   },
   {
     name: "Trabaja Con Nosotros",
     href: "/trabaja",
-    dropdownContent: (
-      <div>
-        <p>Convocatorias</p>
-        <p>Postula aquí</p>
-      </div>
-    ),
+    dropdownContent: [
+      { name: "Convocatorias", href: "/trabaja/convocatorias" },
+      { name: "Postula aquí", href: "/trabaja/postula" },
+    ],
   },
 ];
 
@@ -91,6 +81,19 @@ const NavLinks = () => {
   const pathname = usePathname();
   const [isCourseBlocked] = useState(true);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null);
+      }
+    };
+    window.addEventListener("click", handleClickOutside);
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="flex gap-6 items-center relative">
@@ -99,23 +102,19 @@ const NavLinks = () => {
         const isOpen = activeDropdown === link.name;
 
         return (
-          <div
-            key={link.name}
-            className="relative group"
-            onMouseEnter={() => link.dropdownContent && setActiveDropdown(link.name)}
-            onMouseLeave={() => link.dropdownContent && setActiveDropdown(null)}
-          >
+          <div key={link.name} className="relative group" ref={isOpen ? dropdownRef : null}>
             {link.isBlocked && isCourseBlocked ? (
               <div className="flex items-center gap-1 text-gray-400 cursor-not-allowed">
                 <FiLock />
                 <span className="text-base">{link.name}</span>
               </div>
             ) : link.dropdownContent ? (
-              <>
+              <div className="relative">
                 <button
+                  onClick={() => setActiveDropdown(isOpen ? null : link.name)}
                   className={`text-base font-medium transition-all duration-300 ${isActive
-                      ? "text-white underline"
-                      : "text-white hover:text-blue-200 hover:underline"
+                    ? "text-white underline"
+                    : "text-white hover:text-blue-200 hover:underline"
                     }`}
                 >
                   {link.name}
@@ -131,17 +130,21 @@ const NavLinks = () => {
 
                     <p className="text-sm font-semibold text-blue-900">{link.name} opciones</p>
                     <div className="mt-3 border-t border-gray-200 pt-3 space-y-2 text-sm">
-                      {link.dropdownContent}
+                      {link.dropdownContent.map((item) => (
+                        <Link key={item.name} href={item.href} className="block hover:text-blue-600">
+                          {item.name}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 )}
-              </>
+              </div>
             ) : (
               <Link
                 href={link.href}
                 className={`text-base font-medium transition-all duration-300 ${isActive
-                    ? "text-white underline"
-                    : "text-white hover:text-blue-200 hover:underline"
+                  ? "text-white underline"
+                  : "text-white hover:text-blue-200 hover:underline"
                   }`}
               >
                 {link.name}
