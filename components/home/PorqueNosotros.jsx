@@ -1,51 +1,53 @@
 "use client";
+
 import React, { useState, useEffect, useRef, memo } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
+import { motion, useMotionValue, useMotionTemplate, useSpring } from "framer-motion";
 
-// Carga dinámica del componente Globe (sin SSR)
-const Globe = dynamic(() => import("../globe/Globe"), { ssr: false });
-
-// Custom Hook para la animación de conteo
+// Hook para animar los contadores
 const useCounter = (endValue, isVisible) => {
   const [count, setCount] = useState(0);
-
   useEffect(() => {
     if (!isVisible) return;
     const duration = 2000;
-    const startTime = performance.now();
+    const start = performance.now();
 
-    const animateCount = (currentTime) => {
-      const progress = Math.min((currentTime - startTime) / duration, 1);
+    const animate = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
       setCount(Math.ceil(progress * endValue));
-      if (progress < 1) requestAnimationFrame(animateCount);
+      if (progress < 1) requestAnimationFrame(animate);
     };
 
-    requestAnimationFrame(animateCount);
+    requestAnimationFrame(animate);
   }, [endValue, isVisible]);
 
   return count;
 };
 
-// Memoized component for each card
+// Card individual
 const InfoCard = memo(({ img, count, text }) => (
-  <div className="relative text-center bg-white p-6 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 w-full max-w-[350px] mx-auto">
-    <div className="relative z-10">
-      <Image
-        src={img}
-        alt="Gif Animado"
-        unoptimized // Deshabilitar la optimización de imágenes para GIFs animados
-        width={50}
-        height={50}
-        className="mx-auto mb-2 transform hover:scale-110 transition-transform duration-300"
-      />
-      <h2 className="text-lg md:text-3xl font-bold text-black">+{count}</h2>
-      <p className="text-black">{text}</p>
-    </div>
-  </div>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    className="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 w-full max-w-[250px] mx-auto"
+  >
+    <Image
+      src={img}
+      alt="Icono"
+      width={50}
+      height={50}
+      unoptimized
+      className="mx-auto mb-2"
+    />
+    <h2 className="text-lg md:text-2xl font-bold text-black">+{count}</h2>
+    <p className="text-black text-sm">{text}</p>
+  </motion.div>
 ));
 
-const PrincipalHome = () => {
+// Componente principal
+const PorqueNosotros = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -57,6 +59,35 @@ const PrincipalHome = () => {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
+
+  // Lógica para el efecto de inclinación (3D Tilt)
+  const reff = useRef(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const xSpring = useSpring(x, { stiffness: 50, damping: 20 });
+  const ySpring = useSpring(y, { stiffness: 50, damping: 20 });
+  const transform = useMotionTemplate`rotateX(${xSpring}deg) rotateY(${ySpring}deg)`;
+
+  const handleMouseMove = (e) => {
+    const rect = reff.current?.getBoundingClientRect();
+    if (!rect) return;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = (mouseY - centerY) / 10;
+    const rotateY = (mouseX - centerX) / 10;
+
+    x.set(-rotateX);
+    y.set(rotateY);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
 
   const studentsCount = useCounter(1500, isVisible);
   const diplomasCount = useCounter(50, isVisible);
@@ -73,35 +104,65 @@ const PrincipalHome = () => {
   return (
     <section
       ref={sectionRef}
-      className="flex flex-col md:flex-row items-center justify-center min-h-screen px-4 md:px-12 bg-gradient-to-b from-white via-blue-200 to-white overflow-hidden"
+      className="w-full px-4 py-16 md:py-24 bg-gradient-to-b from-white via-blue-200 to-white"
     >
-      {/* Contenedor del Globo (Izquierda) */}
-      <div className="flex items-center justify-center w-full md:max-w-[600px] text-left mt-4 md:mt-0 z-10 overflow-hidden">
-        <div className="globe-container">
-          <Globe />
-        </div>
-      </div>
+      {/* Título + texto */}
+      <motion.div
+        className="text-center mb-12 max-w-4xl mx-auto px-4"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-3xl md:text-5xl font-extrabold text-blue-900 uppercase mb-4">
+          ¿Por qué elegir Inalta?
+        </h2>
+        <p className="text-black text-lg md:text-xl">
+          Elige Inalta para impulsar tu futuro. Con nuestros cursos especializados, abrimos las
+          puertas a un mundo de conocimientos que te llevará más allá de tus límites.
+        </p>
+      </motion.div>
 
-      {/* Contenedor del Texto y Métricas (Derecha) */}
-      <div className="w-full md:w-1/2 text-left mt-4 md:mt-0 z-10 max-w-screen-lg mx-auto">
-        <div className="mb-4 px-2 md:px-0">
-          <h1 className="text-black text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase mb-6 md:mb-8">
-            ¿Por qué elegir Inalta?
-          </h1>
-          <p className="text-black md:text-2xl leading-relaxed md:leading-normal">
-            Elige Inalta para impulsar tu futuro. Con nuestros cursos especializados, abrimos las puertas a un mundo de conocimientos que te llevará más allá de tus límites.
-          </p>
+      {/* Grid principal con la imagen en el centro */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center justify-center max-w-7xl mx-auto px-4">
+        {/* Lado izquierdo */}
+        <div className="flex flex-col gap-6 items-center lg:col-span-2">
+          <InfoCard {...cardData[0]} />
+          <InfoCard {...cardData[2]} />
         </div>
 
-        {/* Tarjetas con información */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 px-2 md:px-0">
-          {cardData.map((item, index) => (
-            <InfoCard key={index} {...item} />
-          ))}
+        {/* Imagen centrada con interactividad */}
+        <motion.div
+          ref={reff}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          className="flex items-center justify-center lg:col-span-1 w-full max-w-[380px] mx-auto"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          style={{
+            transformStyle: "preserve-3d",
+            transform,
+          }}
+        >
+          <Image
+            src="/image/icongole.png"
+            alt="Imagen central"
+            width={380}
+            height={380}
+            className="object-contain mx-auto"
+          />
+        </motion.div>
+
+        {/* Lado derecho */}
+        <div className="flex flex-col gap-6 items-center lg:col-span-2">
+          <InfoCard {...cardData[1]} />
+          <InfoCard {...cardData[3]} />
         </div>
       </div>
     </section>
   );
 };
 
-export default memo(PrincipalHome);
+export default memo(PorqueNosotros);
