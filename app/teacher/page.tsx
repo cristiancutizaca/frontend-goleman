@@ -29,6 +29,64 @@ const teamMembers = [
     description:
       "Párrafo. Haz clic aquí para agregar tu propio texto y editar. Es fácil. Haz clic en 'Editar texto' o doble clic aquí para agregar tu contenido y cambiar la fuente.",
   },
+  {
+    name: "Ana Rodríguez",
+    title: "Profesora de aula",
+    image: "/image/test1.webp",
+    description:
+      "Párrafo. Haz clic aquí para agregar tu propio texto y editar. Es fácil. Haz clic en 'Editar texto' o doble clic aquí para agregar tu contenido y cambiar la fuente.",
+  },
+  {
+    name: "David Parra",
+    title: "Director de programa",
+    image: "/image/test1.webp",
+    description:
+      "Párrafo. Haz clic aquí para agregar tu propio texto y editar. Es fácil. Haz clic en 'Editar texto' o doble clic aquí para agregar tu contenido y cambiar la fuente.",
+  },
+  {
+    name: "Tomás Castro",
+    title: "Instructor de drones",
+    image: "/image/test1.webp",
+    description:
+      "Párrafo. Haz clic aquí para agregar tu propio texto y editar. Es fácil. Haz clic en 'Editar texto' o doble clic aquí para agregar tu contenido y cambiar la fuente.",
+  },
+  {
+    name: "Libia Vargas",
+    title: "Asistente Educativa",
+    image: "/image/test1.webp",
+    description:
+      "Párrafo. Haz clic aquí para agregar tu propio texto y editar. Es fácil. Haz clic en 'Editar texto' o doble clic aquí para agregar tu contenido y cambiar la fuente.",
+  },
+
+
+  {
+    name: "Ana Rodríguez",
+    title: "Profesora de aula",
+    image: "/image/test1.webp",
+    description:
+      "Párrafo. Haz clic aquí para agregar tu propio texto y editar. Es fácil. Haz clic en 'Editar texto' o doble clic aquí para agregar tu contenido y cambiar la fuente.",
+  },
+  {
+    name: "David Parra",
+    title: "Director de programa",
+    image: "/image/test1.webp",
+    description:
+      "Párrafo. Haz clic aquí para agregar tu propio texto y editar. Es fácil. Haz clic en 'Editar texto' o doble clic aquí para agregar tu contenido y cambiar la fuente.",
+  },
+  {
+    name: "Tomás Castro",
+    title: "Instructor de drones",
+    image: "/image/test1.webp",
+    description:
+      "Párrafo. Haz clic aquí para agregar tu propio texto y editar. Es fácil. Haz clic en 'Editar texto' o doble clic aquí para agregar tu contenido y cambiar la fuente.",
+  },
+  {
+    name: "Libia Vargas",
+    title: "Asistente Educativa",
+    image: "/image/test1.webp",
+    description:
+      "Párrafo. Haz clic aquí para agregar tu propio texto y editar. Es fácil. Haz clic en 'Editar texto' o doble clic aquí para agregar tu contenido y cambiar la fuente.",
+  },
 ];
 
 export default function TeamSection() {
@@ -46,10 +104,10 @@ export default function TeamSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mt-16">
         {teamMembers.map((member, idx) => {
-          const layoutClass =
-            idx < 2
-              ? "md:flex-row"
-              : "md:flex-row-reverse";
+          // Define el patrón alternante según pares
+const layoutClass =
+Math.floor(idx / 2) % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse";
+"md:flex-row-reverse";
 
           return (
             <div

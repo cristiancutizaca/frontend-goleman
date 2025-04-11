@@ -27,8 +27,8 @@ const links: NavLinkItem[] = [
     href: "/app",
     dropdownContent: [
       { name: "Nuestra Escuela", href: "/school" },
-      { name: "Equipo Pedagógico", href: "/nosotros/equipo" },
-      { name: "Los líderes", href: "/nosotros/lideres" },
+      { name: "Equipo Pedagógico", href: "/teacher" },
+      { name: "Los líderes", href: "/directorio" },
     ],
   },
   {
