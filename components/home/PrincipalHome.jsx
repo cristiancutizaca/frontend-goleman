@@ -14,13 +14,15 @@ const FullScreenCarousel = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+      setIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
     }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative w-full h-[500px] overflow-hidden"> {/* Ajuste de tamaño */}
+    <div className="relative w-full h-[500px] overflow-hidden">
       {images.map((src, i) => (
         <motion.div
           key={i}
@@ -31,8 +33,8 @@ const FullScreenCarousel = () => {
           <Image
             src={src}
             alt={`Slide ${i + 1}`}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
             priority={i === 0}
           />
         </motion.div>

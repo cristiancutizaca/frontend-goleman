@@ -33,11 +33,11 @@ const links: NavLinkItem[] = [
   },
   {
     name: "Niveles",
-    href: "/certs",
+    href: "/app",
     dropdownContent: [
-      { name: "Inicial", href: "/niveles/inicial" },
-      { name: "Primaria", href: "/niveles/primaria" },
-      { name: "Secundaria", href: "/niveles/secundaria" },
+      { name: "Inicial", href: "/inicial" },
+      { name: "Primaria", href: "/primaria" },
+      { name: "Secundaria", href: "/secundaria" },
     ],
   },
   {
