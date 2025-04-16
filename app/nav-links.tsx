@@ -42,10 +42,10 @@ const links: NavLinkItem[] = [
   },
   {
     name: "Propuesta Educativa",
-    href: "/curs",
+    href: "/app",
     isBlocked: false,
     dropdownContent: [
-      { name: "Contáctanos", href: "/contacto" },
+      { name: "Contáctanos", href: "/ContactForm" },
       { name: "Admisión", href: "/admision" },
       { name: "Teléfonos", href: "/contacto/telefonos" },
     ],
