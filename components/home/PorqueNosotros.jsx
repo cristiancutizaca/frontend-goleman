@@ -2,7 +2,12 @@
 
 import React, { useState, useEffect, useRef, memo } from "react";
 import Image from "next/image";
-import { motion, useMotionValue, useMotionTemplate, useSpring } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useMotionTemplate,
+  useSpring,
+} from "framer-motion";
 
 // Hook para animar los contadores
 const useCounter = (endValue, isVisible) => {
@@ -60,7 +65,7 @@ const PorqueNosotros = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Lógica para el efecto de inclinación (3D Tilt)
+  // Lógica para el efecto de inclinación (tipo TiltCard)
   const reff = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -77,8 +82,8 @@ const PorqueNosotros = () => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = (mouseY - centerY) / 10;
-    const rotateY = (mouseX - centerX) / 10;
+    const rotateX = (mouseY - centerY) / 8;
+    const rotateY = (mouseX - centerX) / 8;
 
     x.set(-rotateX);
     y.set(rotateY);
@@ -104,7 +109,7 @@ const PorqueNosotros = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full px-4 py-16 md:py-24 bg-gradient-to-b from-white via-blue-200 to-white"
+      className="w-full px-4 py-16 md:py-24 bg-[#1a2b44]"
     >
       {/* Título + texto */}
       <motion.div
@@ -115,12 +120,13 @@ const PorqueNosotros = () => {
         viewport={{ once: true }}
       >
         <h2 className="text-3xl md:text-5xl font-extrabold text-blue-900 uppercase mb-4">
-          ¿Por qué elegir Inalta?
+          ¿Por qué elegir el Colegio Goleman?
         </h2>
         <p className="text-black text-lg md:text-xl">
-          Elige Inalta para impulsar tu futuro. Con nuestros cursos especializados, abrimos las
-          puertas a un mundo de conocimientos que te llevará más allá de tus límites.
-        </p>
+          En el Colegio Goleman, nos comprometemos con la formación integral de nuestros estudiantes,
+          impulsando su desarrollo académico, emocional y personal. Nuestra educación de calidad abre
+          puertas a un futuro brillante lleno de oportunidades.
+        </p>  
       </motion.div>
 
       {/* Grid principal con la imagen en el centro */}
@@ -131,9 +137,11 @@ const PorqueNosotros = () => {
           <InfoCard {...cardData[2]} />
         </div>
 
-        {/* Imagen centrada con interactividad */}
+        {/* Imagen centrada con efecto 3D tipo TiltCard */}
         <motion.div
-          ref={reff}
+          ref={(node) => {
+            reff.current = node;
+          }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className="flex items-center justify-center lg:col-span-1 w-full max-w-[380px] mx-auto"
@@ -146,13 +154,21 @@ const PorqueNosotros = () => {
             transform,
           }}
         >
-          <Image
-            src="/image/icongole.png"
-            alt="Imagen central"
-            width={380}
-            height={380}
-            className="object-contain mx-auto"
-          />
+          <div
+            className="rounded-xl shadow-xl bg-white p-4"
+            style={{
+              transform: "translateZ(75px)",
+              transformStyle: "preserve-3d",
+            }}
+          >
+            <Image
+              src="/image/icongole.png"
+              alt="Imagen central"
+              width={380}
+              height={380}
+              className="object-contain mx-auto rounded-xl"
+            />
+          </div>
         </motion.div>
 
         {/* Lado derecho */}

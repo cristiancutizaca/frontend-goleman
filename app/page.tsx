@@ -14,7 +14,7 @@ import PrincipalHome from "@/components/home/PrincipalHome";
 
 export default function Main() {
   return (
-    <main className="relative z-0">
+    <main className=" bg-[#1a2b44]">
       {/* Primera Sección */}
       <div>
         <PrincipalHome />
@@ -22,7 +22,7 @@ export default function Main() {
       </div>
 
       {/* Segunda Sección - PorqueNosotros y Cursos Destacados */}
-      <div className="bg-gradient-to-b from-white via-white to-white">
+      <div className=" bg-[#1a2b44]">
         <PorqueNosotros />
       </div>//
 
@@ -32,7 +32,7 @@ export default function Main() {
         */}
 
       {/* Contact Form */}
-      <div className="bg-gradient-to-b from-blue-50 via-white to-white">
+      <div className="bg-[#1a2b44]">
         <ContactForm />
       </div>
 
