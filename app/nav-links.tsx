@@ -47,32 +47,32 @@ const links: NavLinkItem[] = [
     dropdownContent: [
       { name: "Contáctanos", href: "/ContactForm" },
       { name: "Admisión", href: "/admision" },
-      { name: "Teléfonos", href: "/contacto/telefonos" },
+      { name: "Teléfonos", href: "/contact" },
     ],
   },
   {
     name: "Contacto",
-    href: "/#footer",
+    href: "/app",
     dropdownContent: [
-      { name: "Formulario", href: "/contacto/formulario" },
-      { name: "Mapa", href: "/contacto/mapa" },
-      { name: "Teléfonos", href: "/contacto/telefonos" },
+      { name: "Formulario", href: "/contact" },
+      { name: "Mapa", href: "/contact" },
+      { name: "Teléfonos", href: "/contact" },
     ],
   },
   {
     name: "Blog",
-    href: "/#footer",
+    href: "/app",
     dropdownContent: [
-      { name: "Artículos recientes", href: "/blog" },
-      { name: "Eventos", href: "/eventos" },
+      { name: "Artículos recientes", href: "/SocialShowcase" },
+      { name: "Eventos", href: "/events" },
     ],
   },
   {
     name: "Trabaja Con Nosotros",
-    href: "/trabaja",
+    href: "/app",
     dropdownContent: [
-      { name: "Convocatorias", href: "/trabaja/convocatorias" },
-      { name: "Postula aquí", href: "/trabaja/postula" },
+      { name: "Convocatorias", href: "/CallToActionBanner" },
+      { name: "Postula aquí", href: "/convocatoria" },
     ],
   },
 ];
