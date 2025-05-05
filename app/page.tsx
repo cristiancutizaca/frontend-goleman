@@ -3,8 +3,8 @@ import dynamic from "next/dynamic";
 
 // Importación de componentes dinámicos con carga diferida
 const PorqueNosotros = dynamic(() => import("@/components/home/PorqueNosotros"), { loading: () => <p>Cargando...</p>, ssr: false });
-//const CarouselCursosDestacados = dynamic(() => import("@/components/home/SwiperCursosDestacados"), { loading: () => <p>Cargando...</p>, ssr: false });
-//const TestimoniosFb = dynamic(() => import("@/components/home/TestimoniosFb"), { loading: () => <p>Cargando...</p>, ssr: false });
+// const CarouselCursosDestacados = dynamic(() => import("@/components/home/SwiperCursosDestacados"), { loading: () => <p>Cargando...</p>, ssr: false });
+// const TestimoniosFb = dynamic(() => import("@/components/home/TestimoniosFb"), { loading: () => <p>Cargando...</p>, ssr: false });
 const NuestrosDiplomados = dynamic(() => import("@/components/home/NuestrosDiplomados"), { loading: () => <p>Cargando...</p>, ssr: false });
 const ContactForm = dynamic(() => import("@/components/home/ContactForm"), { loading: () => <p>Cargando...</p>, ssr: false });
 const ScrollToBotButton = dynamic(() => import("@/components/home/bounceDown"), { loading: () => <p>Cargando...</p>, ssr: false });
@@ -14,25 +14,24 @@ import PrincipalHome from "@/components/home/PrincipalHome";
 
 export default function Main() {
   return (
-    <main className=" bg-[#1a2b44]">
+    <main className="animate-bgCycle transition-colors duration-1000">
       {/* Primera Sección */}
       <div>
         <PrincipalHome />
         <NuestrosDiplomados />
       </div>
 
-      {/* Segunda Sección - PorqueNosotros y Cursos Destacados */}
-      <div className=" bg-[#1a2b44]">
+      {/* Segunda Sección - PorqueNosotros */}
+      <div>
         <PorqueNosotros />
-      </div>//
+      </div>
 
       {/* Testimonios 
-      <TestimoniosFb />}
-         <CarouselCursosDestacados />
-        */}
+      <TestimoniosFb /> */}
+      {/* <CarouselCursosDestacados /> */}
 
       {/* Contact Form */}
-      <div className="bg-[#1a2b44]">
+      <div>
         <ContactForm />
       </div>
 

@@ -1,6 +1,8 @@
 // /components/MainPage.tsx
+"use client";
 import React from 'react';
 
+// Tipos para props
 type SectionBlockProps = {
   title: string;
   subtitle1?: string;
@@ -11,6 +13,7 @@ type SectionBlockProps = {
   imageLeft?: boolean;
 };
 
+// Bloque de sección reutilizable
 const SectionBlock: React.FC<SectionBlockProps> = ({
   title,
   subtitle1,
@@ -40,7 +43,12 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
             {subtitle2 && <h3 className="text-lg font-semibold text-white mb-2">{subtitle2}</h3>}
             {description2 && <p className="mb-4">{description2}</p>}
           </div>
-          <a href="#" className="underline text-sm">
+          <a
+            href="https://wa.me/51942051076"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-sm hover:text-yellow-300 transition-colors"
+          >
             Más información
           </a>
         </div>
@@ -49,6 +57,7 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
   );
 };
 
+// Página principal
 const MainPage: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto">

@@ -48,7 +48,7 @@ const ContactForm = () => {
     <section id="contacto" className="bg-transparent p-8 rounded-xl">
       <div className="max-w-7xl mx-auto space-y-8 px-4 sm:px-0">
         <div className="text-center">
-          <h2 className="text-center text-black text-3xl sm:text-4xl font-extrabold uppercase mb-8">
+          <h2 className="text-center text-blue-800 text-3xl sm:text-4xl font-extrabold uppercase mb-8">
             ¡Contáctanos!
           </h2>
         </div>

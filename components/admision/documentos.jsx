@@ -51,7 +51,7 @@ const files = [
 
 const Descargables = () => {
   return (
-    <section className="bg-[#C4E3B0] py-16 px-4 text-center">
+    <section className="bg-transparent py-16 px-4 text-center">
       <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10">Descargables</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {files.map((file, idx) => (

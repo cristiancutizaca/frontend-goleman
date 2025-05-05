@@ -91,7 +91,7 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="bg-indigo-700 text-white py-20">
+    <section className="bg-[#1a2b44] text-white py-20">
       <div className="text-center max-w-3xl mx-auto px-4">
         <h2 className="text-4xl font-bold mb-4">Nuestro personal</h2>
         <p className="text-lg">

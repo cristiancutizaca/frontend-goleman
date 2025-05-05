@@ -10,7 +10,7 @@ export default function SchoolLandingPage() {
           <div className="absolute inset-0 bg-[#f7f2f2] z-0" />
           <div className="bg-[#5a6652] text-white p-6 md:p-10 max-w-md z-10 w-full md:w-auto">
             <h2 className="text-2xl md:text-3xl font-bold leading-tight">
-              The School<br />Garden<br />Program
+              El programa<br />para<br />inicial
             </h2>
             <p className="mt-4 text-[#d1dbe1] text-sm md:text-base">Edible Learning Spaces</p>
             <button className="mt-6 px-4 py-2 bg-[#fbd7cf] text-[#5a6652] hover:opacity-90 text-sm md:text-base">
@@ -39,7 +39,7 @@ export default function SchoolLandingPage() {
             style={{ objectFit: "contain" }}
           />
         </div>
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Goals</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4">Nuestros objetivos</h2>
         <p className="max-w-2xl text-[#7e8a7d] text-sm md:text-base leading-relaxed px-2">
           I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click
           "Edit Text" or double click me to add your own content and make changes to the font.
@@ -89,24 +89,7 @@ export default function SchoolLandingPage() {
         ))}
       </section>
 
-      {/* === Sponsors Section === */}
-      <section className="bg-[#f7f2f2] py-16 md:py-20 text-center">
-        <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto relative mb-6">
-          <Image
-            src="/image/mision.png"
-            alt="Pea Icon"
-            fill
-            style={{ objectFit: "contain" }}
-          />
-        </div>
-        <h2 className="text-2xl md:text-3xl font-bold mb-6">Sponsors</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 justify-items-center px-4 max-w-4xl mx-auto py-8">
-          {[1, 2, 3, 4, 5, 6].map(i => (
-            <Image key={i} src="/image/mision.png" alt={`Sponsor ${i}`} width={100} height={40} />
-          ))}
-        </div>
-        <button className="mt-6 px-6 py-2 bg-[#fbd7cf] text-[#5a6652] text-sm md:text-base">Get involved</button>
-      </section>
+     
 
       {/* === Follow Us Section === */}
       <section className="py-16 text-center">

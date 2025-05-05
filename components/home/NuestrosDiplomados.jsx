@@ -4,7 +4,7 @@ import React from "react";
 
 const NuestraHistoria = () => {
   return (
-    <section className="bg-[#7b99b9] text-white py-16 px-4 lg:px-16">
+    <section className="bg-transparent text-white py-16 px-4 lg:px-16">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
         {/* Video */}
         <div className="w-full lg:w-1/2">

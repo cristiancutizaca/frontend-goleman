@@ -21,7 +21,7 @@ const MatriculaPension = () => {
   ];
 
   return (
-    <section className="w-full py-12 px-4 bg-white text-center">
+    <section className="w-full py-12 px-4 bg-transparent text-center">
       <h2 className="text-3xl sm:text-4xl font-bold text-green-700 mb-10">
         Matrícula y pensión
       </h2>
@@ -30,7 +30,7 @@ const MatriculaPension = () => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="border border-gray-200 p-6 bg-green-100 rounded shadow-sm"
+            className="border border-gray-200 p-6 bg-transparent rounded shadow-sm"
           >
             <h3 className="text-sm font-bold text-gray-700 mb-4">
               {item.title}

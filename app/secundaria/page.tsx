@@ -4,19 +4,11 @@ import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
-    <div className="font-sans">
+    <div className="font-sans animate-bgCycle transition-colors duration-1000 text-white">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/hero-art-bg.jpg')" }}>
+      <section className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/image/fond-se.webp')" }}>
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="bg-white text-4xl sm:text-5xl md:text-6xl font-bold p-6 sm:p-8 md:p-12 text-center leading-tight shadow-xl max-w-sm sm:max-w-md md:max-w-lg"
-          >
-            CREA<br />TIVI<br />DAD.
-            <div className="mt-4 text-2xl">⬇</div>
-          </motion.div>
+          
         </div>
       </section>
 
@@ -26,11 +18,11 @@ export default function HomePage() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="bg-gray-100 text-center py-8 px-4"
+        className="text-center py-8 px-4"
       >
-        <h2 className="uppercase text-sm tracking-widest">Seguridad ante todo</h2>
+        <h2 className="uppercase text-sm tracking-widest">Comprometidos con tu desarrollo</h2>
         <p className="mt-2 text-sm max-w-lg mx-auto">
-          Hacemos todo lo posible para garantizar la salud y la seguridad de nuestros alumnos y empleados. Encuentra información adicional <a href="#" className="underline text-orange-500">AQUÍ</a>
+          En el nivel secundaria del Colegio Daniel Goleman, formamos líderes críticos, creativos y comprometidos con su comunidad. <a href="#" className="underline text-orange-500">Conoce más</a>
         </p>
       </motion.section>
 
@@ -42,26 +34,26 @@ export default function HomePage() {
         transition={{ duration: 0.8 }}
         className="text-center py-12 px-4"
       >
-        <h3 className="text-sm tracking-widest uppercase">Los Cursos</h3>
+        <h3 className="text-sm tracking-widest uppercase">Áreas Académicas</h3>
         <div className="mt-8 flex flex-wrap justify-center gap-6 md:gap-10">
           {[
-            { letter: 'B', title: 'Bellas artes' },
-            { letter: 'D', title: 'Diseño gráfico' },
-            { letter: 'G', title: 'Grafiti' },
-            { letter: 'I', title: 'Ilustración' },
+            { letter: 'C', title: 'Comunicación' },
+            { letter: 'M', title: 'Matemática' },
+            { letter: 'H', title: 'Historia' },
+            { letter: 'C', title: 'Ciencias' },
           ].map((c) => (
             <motion.div
               key={c.letter}
               whileHover={{ scale: 1.05 }}
               className="w-36 sm:w-40"
             >
-              <div className="text-5xl font-bold">{c.letter}</div>
+              <div className="text-5xl font-bold text-yellow-300">{c.letter}</div>
               <h4 className="mt-2 font-semibold">{c.title}</h4>
-              <p className="text-xs mt-1">Parrafo. Haz clic aquí para agregar tu propio texto y editar.</p>
+              <p className="text-xs mt-1">Desarrollo integral para un futuro brillante.</p>
             </motion.div>
           ))}
         </div>
-        <a href="#" className="mt-4 block text-sm underline text-orange-500">Ver cursos &gt;&gt;</a>
+        <a href="#" className="mt-4 block text-sm underline text-orange-500">Ver áreas &gt;&gt;</a>
       </motion.section>
 
       {/* Galería */}
@@ -82,12 +74,12 @@ export default function HomePage() {
             transition={{ duration: 0.4 }}
             className="aspect-square overflow-hidden"
           >
-            <img src={`/gallery/${i + 1}.jpg`} alt={`Obra ${i + 1}`} className="object-cover w-full h-full" />
+            <img src={`/gallery/${i + 1}.jpg`} alt={`Actividad ${i + 1}`} className="object-cover w-full h-full" />
           </motion.div>
         ))}
       </motion.section>
 
-      {/* Próximos Cursos */}
+      {/* Próximos Eventos */}
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -95,22 +87,22 @@ export default function HomePage() {
         transition={{ duration: 0.8 }}
         className="text-center py-12 px-4"
       >
-        <h3 className="text-sm tracking-widest uppercase mb-6">Próximos cursos</h3>
+        <h3 className="text-sm tracking-widest uppercase mb-6">Próximos eventos escolares</h3>
         <div className="flex flex-wrap justify-center gap-6 md:gap-10">
           {[
-            { date: '14', month: 'Marzo' },
-            { date: '26', month: 'Marzo' },
-            { date: '09', month: 'Abril' },
-            { date: '15', month: 'Abril' },
+            { date: '14', month: 'Junio' },
+            { date: '26', month: 'Julio' },
+            { date: '09', month: 'Agosto' },
+            { date: '15', month: 'Septiembre' },
           ].map((c, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
               className="w-36 sm:w-40"
             >
-              <div className="text-4xl font-bold">{c.date}</div>
+              <div className="text-4xl font-bold text-yellow-300">{c.date}</div>
               <div className="uppercase text-sm">{c.month}</div>
-              <p className="text-xs mt-2">Título. Haz clic aquí para agregar tu texto y editarlo.</p>
+              <p className="text-xs mt-2">Actividades extracurriculares y más.</p>
               <a href="#" className="text-orange-500 text-xs underline mt-1 inline-block">Leer más &gt;&gt;</a>
             </motion.div>
           ))}
@@ -125,8 +117,8 @@ export default function HomePage() {
         transition={{ duration: 1 }}
         className="bg-black text-white text-center py-20 px-4"
       >
-        <h2 className="text-4xl font-bold">IDENTIDAD</h2>
-        <p className="mt-2 text-sm">CONQUISTA TU PROPIO ESTILO</p>
+        <h2 className="text-4xl font-bold">NUESTRA IDENTIDAD</h2>
+        <p className="mt-2 text-sm">Formamos ciudadanos con valores, conocimiento y pasión.</p>
         <a href="#" className="text-xs underline mt-4 inline-block">Leer más &gt;&gt;</a>
       </motion.section>
     </div>

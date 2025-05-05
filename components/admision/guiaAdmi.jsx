@@ -13,7 +13,7 @@ export default function HomePage() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-center py-16 px-6 bg-white"
+        className="text-center py-16 px-6 bg-transparent"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-12">
           Proceso de Admisión

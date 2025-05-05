@@ -12,7 +12,6 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        // Definir el degradado de morado a gris
         'gradient-purple-to-black': 'linear-gradient(to bottom, #6a0dad, #f5f5f5)',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
@@ -20,15 +19,12 @@ module.exports = {
         'roboto': ['Roboto', 'system-ui'],
       },
       colors: {
-        'gray-light': '#020617', // Añadir color gris claro
+        'gray-light': '#020617',
         'primaryblue': '#020617',
         'primaryblack': '#f0f0f0',
-        'purple-dark': '#020617', // Morado oscuro 
-        'primaryBlue': '#0060ff', 
-        'primaryGreen': '#a1d302', 
-
-
-
+        'purple-dark': '#020617',
+        'primaryBlue': '#0060ff',
+        'primaryGreen': '#a1d302',
       },
       textColor: {
         'textrosa': '#0060ff',
@@ -39,6 +35,7 @@ module.exports = {
         'spin-slow-25': 'spin 25s linear infinite',
         'spin-slow-10': 'spin 10s linear infinite',
         'marquee-infinite': 'marquee 25s linear infinite',
+        'bgCycle': 'bgCycle 12s infinite ease-in-out',
       },
       keyframes: {
         marquee: {
@@ -48,6 +45,13 @@ module.exports = {
         marquee2: {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' },
+        },
+        bgCycle: {
+          '0%': { backgroundColor: '#F5C518' },       // amarillo libro
+          '25%': { backgroundColor: '#D62828' },      // rojo sabiduría
+          '50%': { backgroundColor: '#3AB7F5' },      // azul cielo
+          '75%': { backgroundColor: '#090E24' },      // azul oscuro de imagen
+          '100%': { backgroundColor: '#F5C518' },
         },
       },
     },

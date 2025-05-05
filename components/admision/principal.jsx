@@ -1,41 +1,45 @@
 import React from "react";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
-const AdmisionSection = () => {
+const DiplomadosNav = dynamic(() => import("@/components/admision/diplomadosNav"));
+const DashboardSkeleton = dynamic(() => import("@/components/home/skeletons"));
+
+export default function Main() {
   return (
-    <section style={{ backgroundColor: "#C4E3B0" }} className="w-full py-16 px-6">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">Admisión</h2>
-        <p className="text-white text-lg sm:text-xl font-semibold mb-10">
-          Conoce más acerca de la propuesta educativa Áleph e inicia hoy nuestro proceso de admisión 2025-2026.
-        </p>
-
-        <div className="relative max-w-3xl mx-auto rounded overflow-hidden">
-          <Image
-            src="/image/admisiones.jpg" // <-- reemplaza con la ruta real
-            alt="Niños jugando"
-            width={960}
-            height={540}
-            layout="responsive"
-            objectFit="cover"
-            className="rounded"
-          />
-          <div className="absolute inset-0 flex justify-center items-center">
-            <button className="bg-white bg-opacity-80 rounded-full p-4 shadow-md hover:scale-105 transition-transform">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="w-10 h-10 text-black"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
+    <div className="bg-transparent min-h-screen mx-auto max-w-screen-2xl px-4 md:px-8 mb-12">
+      <div className="flex flex-col items-center justify-center mt-8 mb-8">
+        <div className="relative w-full max-w-2xl aspect-video rounded overflow-hidden shadow-lg">
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" // <-- reemplaza con el ID real
+            title="Video institucional Colegio Daniel Goleman"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          ></iframe>
         </div>
+        <h1 className="text-4xl font-bold text-center text-white drop-shadow-md mt-6">
+          Colegio Intercultural Daniel Goleman
+        </h1>
+        <p className="text-center text-white text-lg max-w-2xl mt-2">
+          Educación para la sabiduría, el conocimiento y la integración cultural.
+        </p>
       </div>
-    </section>
-  );
-};
 
-export default AdmisionSection;
+      <div className="mb-8">
+        <h2 className="mb-4 mt-8 text-center text-2xl font-bold text-white dark:text-black md:mb-6 lg:text-4xl">
+          Nuestros Diplomados
+        </h2>
+        <p className="mx-auto text-center text-white dark:text-black md:text-xl">
+          Explora Nuestra Trayectoria Educativa: Descubre Nuestros Programas de Formación
+        </p>
+      </div>
+
+      <div>
+        <Suspense fallback={<DashboardSkeleton />}>
+          <DiplomadosNav />
+        </Suspense>
+      </div>
+    </div>
+  );
+}

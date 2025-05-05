@@ -1,17 +1,16 @@
 import Image from "next/image";
-
 export default function SchoolLandingPage() {
   return (
     <main className="font-sans text-white bg-white">
 
-      {/* === Hero Section (New Image) === */}
+      {/* === Hero Section === */}
       <section className="flex flex-col lg:flex-row">
-        <div className="flex-1 bg-[#d92027] p-10 flex flex-col justify-center min-h-[400px]">
+        <div className="flex-1 bg-[#003366] p-10 flex flex-col justify-center min-h-[400px]">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Stanford <br /> <span className="text-white">Elementary</span>
+            Goleman <br /> <span className="text-white">Primaria</span>
           </h1>
-          <p className="mt-4 text-xl">A Great Place to Learn</p>
-          <a href="#" className="mt-6 text-sm underline font-medium text-white">About Our School</a>
+          <p className="mt-4 text-xl">Un lugar para crecer y aprender</p>
+          <a href="#" className="mt-6 text-sm underline font-medium text-white">Sobre la Institución</a>
         </div>
         <div className="flex-1 relative min-h-[400px]">
           <Image
@@ -25,90 +24,79 @@ export default function SchoolLandingPage() {
       </section>
 
       {/* === Safety First Section === */}
-      <section className="grid grid-cols-1 md:grid-cols-2 bg-[#dbf3fd]">
+      <section className="grid grid-cols-1 md:grid-cols-2 bg-[#e3f2fd]">
         <div className="relative min-h-[300px]">
           <Image
             src="/image/test.webp"
-            alt="Safety First"
+            alt="Seguridad"
             fill
             style={{ objectFit: "cover" }}
           />
         </div>
         <div className="p-8 flex flex-col justify-center">
-          <h3 className="text-xl font-bold text-[#003366] mb-2">Safety First</h3>
+          <h3 className="text-xl font-bold text-[#003366] mb-2">Seguridad Primero</h3>
           <p className="text-[#003366] text-sm">
-            Full reopening plans for next year, include a physically distanced in-person learning model
+            Reapertura completa con protocolos físicos de distanciamiento para un aprendizaje seguro y presencial.
           </p>
-          <a href="#" className="mt-4 font-semibold underline text-sm text-[#003366]">Learn More</a>
+          <a href="#" className="mt-4 font-semibold underline text-sm text-[#003366]">Ver detalles</a>
         </div>
       </section>
 
-      {/* === Why Stanford Elementary === */}
+      {/* === Why Goleman === */}
       <section className="py-12 px-4">
-        <h2 className="text-2xl font-bold text-[#003366] mb-8">Why Stanford Elementary</h2>
+        <h2 className="text-2xl font-bold text-[#003366] mb-8">¿Por qué elegir Goleman?</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {/* First Row */}
           <div className="relative h-64 md:col-span-2">
-            <Image src="/image/test.webp" alt="Our Approach" fill style={{ objectFit: 'cover' }} />
+            <Image src="/image/enfoque.webp" alt="Nuestro enfoque" fill style={{ objectFit: 'cover' }} />
             <div className="absolute inset-0 bg-black bg-opacity-50 p-6 flex flex-col justify-end">
-              <h3 className="text-lg font-bold">Our Approach</h3>
-              <p className="text-sm">I'm a paragraph. Click here to add your own text and edit me.</p>
-              <a href="#" className="text-sm underline mt-2">Learn More</a>
+              <h3 className="text-lg font-bold">Nuestro enfoque</h3>
+              <p className="text-sm">Educación personalizada con valores y creatividad.</p>
+              <a href="#" className="text-sm underline mt-2">Leer más</a>
             </div>
           </div>
-          <div className="bg-[#d92027] text-white p-6 flex flex-col justify-end">
-            <h3 className="text-lg font-bold">Admission</h3>
-            <p className="text-sm">I'm a paragraph. Click here to add your own text and edit me.</p>
-            <a href="#" className="text-sm underline mt-2">Enroll Today</a>
+          <div className="relative h-64">
+            <Image src="/image/admission.webp" alt="Admisión" fill style={{ objectFit: 'cover' }} />
+            <div className="absolute inset-0 bg-black bg-opacity-50 p-6 flex flex-col justify-end">
+              <h3 className="text-lg font-bold">Admisión</h3>
+              <p className="text-sm">Proceso abierto. Descubre cómo unirte a la familia Goleman.</p>
+              <a href="/admission" className="text-sm underline mt-2">Inscribirse hoy</a>
+            </div>
           </div>
 
           {/* Second Row */}
           <div className="relative h-64">
-            <Image src="/image/test.webp" alt="Enhance Learning" fill style={{ objectFit: 'cover' }} />
+            <Image src="/image/programas.webp" alt="Programas" fill style={{ objectFit: 'cover' }} />
             <div className="absolute inset-0 bg-black bg-opacity-50 p-6 flex flex-col justify-end">
-              <h3 className="text-lg font-bold">Enhance Learning</h3>
-              <p className="text-sm">I'm a paragraph. Click here to add your own text and edit me.</p>
-              <a href="#" className="text-sm underline mt-2">View Programs</a>
+              <h3 className="text-lg font-bold">Aprendizaje enriquecido</h3>
+              <p className="text-sm">Programas que fortalecen habilidades para el futuro.</p>
+              <a href="#" className="text-sm underline mt-2">Ver programas</a>
             </div>
           </div>
-          <div className="bg-[#990000] text-white p-6 flex flex-col justify-end">
-            <h3 className="text-lg font-bold">Latest News & Events</h3>
-            <p className="text-sm">I'm a paragraph. Click here to add your own text and edit me.</p>
-            <a href="#" className="text-sm underline mt-2">View All</a>
+          <div className="relative h-64">
+            <Image src="/image/actividad3.webp" alt="Actividad 1" fill style={{ objectFit: 'cover' }} />
+            <div className="absolute inset-0 bg-black bg-opacity-50 p-6 flex flex-col justify-end">
+              <h3 className="text-lg font-bold">Galería de Actividades</h3>
+              <p className="text-sm">Mira las fotos de nuestros estudiantes aprendiendo y creciendo.</p>
+              <a href="/galeria" className="text-sm underline mt-2">Ver galería</a>
+            </div>
           </div>
           <div className="relative h-64">
-            <Image src="/image/test.webp" alt="Happy Kids" fill style={{ objectFit: 'cover' }} />
+            <Image src="/image/actividad4.webp" alt="Actividad 2" fill style={{ objectFit: 'cover' }} />
           </div>
 
           {/* Third Row */}
-          <div className="bg-[#990000] text-white p-6 flex flex-col justify-end">
-            <h3 className="text-lg font-bold">For the Parents</h3>
-            <p className="text-sm">I'm a paragraph. Click here to add your own text and edit me.</p>
-            <a href="#" className="text-sm underline mt-2">Get Informed</a>
+          <div className="relative h-64">
+            <Image src="/image/actividad5.webp" alt="Actividad 3" fill style={{ objectFit: 'cover' }} />
+            <div className="absolute inset-0 bg-black bg-opacity-50 p-6 flex flex-col justify-end">
+              <h3 className="text-lg font-bold">Galería de Actividades</h3>
+              <p className="text-sm">Fotos de excursiones, proyectos, y juegos escolares.</p>
+              <a href="/galeria" className="text-sm underline mt-2">Ver galería completa</a>
+            </div>
           </div>
           <div className="relative h-64 md:col-span-2">
-            <Image src="/image/test.webp" alt="Student on Tablet" fill style={{ objectFit: 'cover' }} />
+            <Image src="/image/actividad1.webp" alt="Galería 1" fill style={{ objectFit: 'cover' }} />
           </div>
-        </div>
-      </section>
-
-      {/* === Numbers Section === */}
-      <section className="py-12 px-4">
-        <h2 className="text-2xl font-bold text-[#003366] mb-8">Stanford Elementary in Numbers</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-[#003366] text-center">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="bg-[#dbf3fd] min-h-[180px] flex items-center justify-center flex-col text-[#003366] text-lg font-semibold"
-            >
-              <Image
-                src="/image/tes.webp"
-                alt={`Gallery ${i + 1}`}
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          ))}
         </div>
       </section>
 
