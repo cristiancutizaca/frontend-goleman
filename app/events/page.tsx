@@ -30,7 +30,7 @@ const SocialShowcase = () => {
   }, []);
 
   return (
-    <section className="w-full min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-white py-16 px-4 sm:px-6">
+    <section className="w-full min-h-screen bg-cyan-600 py-16 px-4 sm:px-6">
       <div className="mt-28 max-w-6xl mx-auto">
         <h2 className="text-3xl font-extrabold text-center text-purple-800 mb-12">
           📅 Próximos eventos escolares

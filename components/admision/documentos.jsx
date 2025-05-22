@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 import { FaFilePdf } from "react-icons/fa";
 
 const files = [
   {
     label: "Calendario del año lectivo 2025",
-    href: "https://drive.google.com/file/d/DRIVE_ID_1/view", // o "/docs/calendario-2025.pdf"
+    href: "https://drive.google.com/file/d/DRIVE_ID_1/view",
     external: true,
   },
   {
@@ -51,8 +53,8 @@ const files = [
 
 const Descargables = () => {
   return (
-    <section className="bg-transparent py-16 px-4 text-center">
-      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10">Descargables</h2>
+    <section className="bg-transparent py-16 px-4 text-center text-[#124559]">
+      <h2 className="text-3xl sm:text-4xl font-bold text-[#0B85C1] mb-10">Documentos Descargables</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {files.map((file, idx) => (
           <a
@@ -61,10 +63,10 @@ const Descargables = () => {
             target={file.external ? "_blank" : undefined}
             rel={file.external ? "noopener noreferrer" : undefined}
             download={!file.external}
-            className="flex flex-col items-center gap-2 text-white hover:scale-105 transition-transform"
+            className="flex flex-col items-center gap-3 p-4 border border-[#E0E0E0] rounded-lg shadow-sm hover:shadow-lg hover:scale-105 transition-transform bg-[#F8FBFF]"
           >
-            <FaFilePdf className="text-5xl" />
-            <span className="text-sm font-semibold text-center leading-tight">
+            <FaFilePdf className="text-4xl text-[#0B85C1]" />
+            <span className="text-sm font-semibold text-center leading-tight text-[#124559]">
               {file.label}
             </span>
           </a>

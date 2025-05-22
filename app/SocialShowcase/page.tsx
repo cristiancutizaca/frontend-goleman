@@ -4,7 +4,7 @@ import React from "react";
 
 const SocialShowcase = () => {
   return (
-    <section className="w-full min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-white py-16 px-6">
+    <section className="w-full min-h-screen bg-cyan-600 py-16 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
         {/* Facebook Widget */}
         <div className="bg-white shadow-2xl rounded-3xl p-4">

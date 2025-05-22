@@ -44,7 +44,7 @@ const SectionBlock: React.FC<SectionBlockProps> = ({
             {description2 && <p className="mb-4">{description2}</p>}
           </div>
           <a
-            href="https://wa.me/51942051076"
+            href="https://wa.me/996960012"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-sm hover:text-yellow-300 transition-colors"

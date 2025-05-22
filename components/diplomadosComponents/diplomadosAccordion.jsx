@@ -39,7 +39,7 @@ const Curso = ({ curso }) => {
   // Función para generar el enlace a WhatsApp
   const generarEnlaceWhatsapp = (cursoTitulo, modulo) => {
     const mensaje = `Hola, busco información sobre el módulo "${modulo}" del curso "${cursoTitulo}".`;
-    const url = `https://api.whatsapp.com/send?phone=51942051076&text=${encodeURIComponent(
+    const url = `https://api.whatsapp.com/send?phone=51996960012&text=${encodeURIComponent(
       mensaje
     )}&app_absent=0`;
     return url;

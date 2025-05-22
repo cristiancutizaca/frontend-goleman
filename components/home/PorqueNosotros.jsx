@@ -36,7 +36,7 @@ const InfoCard = memo(({ img, count, text }) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
     viewport={{ once: true }}
-    className="bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 w-full max-w-[250px] mx-auto"
+    className="bg-transparent p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300 w-full max-w-[250px] mx-auto"
   >
     <Image
       src={img}
@@ -112,7 +112,7 @@ const PorqueNosotros = () => {
       className="w-full px-4 py-16 md:py-24 bg-transparent"
     >
       {/* Título + texto */}
-      <motion.div
+      <motion.div     
         className="text-center mb-12 max-w-4xl mx-auto px-4"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ const PorqueNosotros = () => {
           }}
         >
           <div
-            className="rounded-xl shadow-xl bg-white p-4"
+            className="rounded-xl shadow-xl bg-transparent p-4"
             style={{
               transform: "translateZ(75px)",
               transformStyle: "preserve-3d",

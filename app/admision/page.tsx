@@ -1,17 +1,19 @@
-import React from "react";
+"use client";
+
+import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { Suspense } from "react";
 
-const DiplomadosNav = dynamic(() => import("@/components/admision/diplomadosNav"));
+// Componentes individuales
+const ProcesoAdmision = dynamic(() => import("@/components/admision/ProcesoAdmision"));
 const DashboardSkeleton = dynamic(() => import("@/components/home/skeletons"));
 
 export default function Main() {
   return (
-    <div className="animate-bgCycle transition-colors duration-1000 min-h-screen mx-auto max-w-screen-2xl px-4 md:px-8 mb-12">
+    <div className="bg-cyan-600 duration-1000 min-h-screen mx-auto max-w-screen-2xl px-4 md:px-8 mb-12">
       <div className="flex flex-col items-center justify-center mt-8 mb-8">
         <Image
-          src="/logo-goleman.png" // Asegúrate de tener esta imagen en public/
+          src="/image/icongole.png"
           alt="Escudo Colegio Daniel Goleman"
           width={120}
           height={120}
@@ -25,13 +27,9 @@ export default function Main() {
         </p>
       </div>
 
-     
-
-      <div>
-        <Suspense fallback={<DashboardSkeleton />}>
-          <DiplomadosNav />
-        </Suspense>
-      </div>
+      <Suspense fallback={<DashboardSkeleton />}>
+        <ProcesoAdmision />
+      </Suspense>
     </div>
   );
 }

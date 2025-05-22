@@ -45,7 +45,7 @@ const links: NavLinkItem[] = [
     href: "/app",
     isBlocked: false,
     dropdownContent: [
-      { name: "Contáctanos", href: "/ContactForm" },
+      { name: "aprendizaje", href: "/aprendizaje" },
       { name: "Admisión", href: "/admision" },
       { name: "Teléfonos", href: "/contact" },
     ],

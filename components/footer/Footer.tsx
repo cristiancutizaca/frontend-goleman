@@ -11,11 +11,11 @@ import {
 } from "react-icons/fa";
 
 const socialLinks = [
-  { href: "https://www.facebook.com", icon: FaFacebookF },
+  { href: "https://www.facebook.com/CDanielGoleman", icon: FaFacebookF },
   { href: "https://www.instagram.com", icon: FaInstagram },
-  { href: "https://wa.me/51942051076", icon: FaWhatsapp },
+  { href: "https://wa.me/51996960012", icon: FaWhatsapp },
   { href: "https://www.tiktok.com", icon: FaTiktok, disabled: true },
-  { href: "https://www.youtube.com", icon: FaYoutube, disabled: true },
+  { href: "https://www.youtube.com/@ColegioDanielGoleman", icon: FaYoutube, disabled: true },
 ];
 
 const navSections = [
@@ -48,7 +48,7 @@ const navSections = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#02042B] to-[#004A9C]  text-white py-16 px-6">
+    <footer className="bg-cyan-600  text-white py-16 px-6">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center">
           <p className="text-lg">Síguenos en nuestras redes sociales</p>

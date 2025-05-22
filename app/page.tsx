@@ -14,7 +14,7 @@ import PrincipalHome from "@/components/home/PrincipalHome";
 
 export default function Main() {
   return (
-    <main className="animate-bgCycle transition-colors duration-1000">
+    <main className="bg-cyan-600">
       {/* Primera Sección */}
       <div>
         <PrincipalHome />

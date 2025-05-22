@@ -9,7 +9,7 @@ import Whatsapp from '@/components/whatsapp/Index';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-roboto bg-white ">
+    <div className="font-roboto bg-cyan-600 ">
       <ThemeProvider
         attribute="class"
         defaultTheme="light"

@@ -1,8 +1,12 @@
-"use client";
+"use client"
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
+
+const SERVICE_ID = "service_kyq65dd";
+const TEMPLATE_ID = "template_g4fyjqe";
+const USER_ID = "wPFS8-SDiJU5s3tun"; // Puedes usar tu Public Key aquí también
 
 const ContactoPage = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -14,7 +18,7 @@ const ContactoPage = () => {
     setStatus("loading");
 
     emailjs
-      .sendForm("service_xxx", "template_xxx", formRef.current, "user_xxx")
+      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, USER_ID)
       .then(() => {
         setStatus("success");
         formRef.current?.reset();
@@ -47,16 +51,18 @@ const ContactoPage = () => {
             <input name="email" type="email" required className="styled-input" />
           </motion.div>
           <motion.div whileFocus={{ scale: 1.01 }} className="group">
-            <label className="text-blue-900 font-semibold text-lg">Tu mensaje</label>
-            <textarea name="mensaje" rows={5} required className="styled-input" />
+            <label className="text-blue-900 font-semibold text-lg ">Tu mensaje</label>
+            <textarea name="mensaje" rows={5} required className="styled-input text-black" />
           </motion.div>
+
+          <input type="hidden" name="date" value={new Date().toLocaleString()} />
 
           <motion.button
             type="submit"
             disabled={status === "loading"}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-white font-bold text-xl shadow-lg hover:opacity-90 transition duration-300"
+            className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-black font-bold text-xl shadow-lg hover:opacity-90 transition duration-300"
           >
             {status === "loading" ? "Enviando..." : "Enviar mensaje"}
           </motion.button>
@@ -73,6 +79,7 @@ const ContactoPage = () => {
           )}
         </form>
       </motion.section>
+
 
       <motion.section
         initial={{ opacity: 0, y: 60 }}
@@ -106,7 +113,7 @@ const ContactoPage = () => {
         <h3 className="text-2xl text-center text-purple-800 font-bold mb-6 uppercase tracking-wide">
           Información de contacto
         </h3>
-        <div className="bg-white rounded-3xl shadow-xl p-8 grid grid-cols-1 sm:grid-cols-2 gap-6 text-blue-900">
+        <div className="bg-cyan-600 rounded-3xl shadow-xl p-8 grid grid-cols-1 sm:grid-cols-2 gap-6 text-blue-900">
           <div className="flex flex-col gap-2">
             <span className="font-semibold text-lg">📍 Dirección:</span>
             <span className="text-base">Av. Los Andes 345, Juliaca - Puno</span>

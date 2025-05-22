@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
-    <div className="font-sans animate-bgCycle transition-colors duration-1000 text-white">
+    <div className="font-sans bg-cyan-600 text-white">
       {/* Hero Section */}
       <section className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/image/fond-se.webp')" }}>
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">

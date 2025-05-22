@@ -87,8 +87,11 @@ const Header = () => {
 
   return (
     <>
+      {/* Header superior */}
       <div
-        className={`w-full bg-white flex justify-between items-center px-4 md:px-8 py-2 border-b border-gray-300 text-sm transition-all duration-300 ${isScrolled ? "hidden" : "flex"}`}
+        className={`w-full bg-white flex justify-between items-center px-4 md:px-8 py-2 border-b border-gray-300 text-sm transition-all duration-300 ${
+          isScrolled ? "hidden" : "flex"
+        }`}
       >
         <div className="flex items-center gap-2">
           <button
@@ -110,18 +113,32 @@ const Header = () => {
             </div>
           </Link>
           <div className="flex items-center md:hidden ml-2">
-            <Link href="/intranet" className="flex items-center gap-1 text-sm text-blue-700 font-semibold">
+            <Link
+              href="/intranet"
+              className="flex items-center gap-1 text-sm text-blue-700 font-semibold"
+            >
               <IoPersonCircle className="text-lg" />
               <span>Aula virtual</span>
             </Link>
           </div>
         </div>
         <div className="hidden md:flex items-center divide-x divide-gray-300">
-          <ContactItem icon={<FiPhoneCall />} label="Comunícate" value="905 474 148" />
+          <ContactItem
+            icon={<FiPhoneCall />}
+            label="Comunícate"
+            value="905 474 148"
+          />
           <ContactItem
             icon={<IoPersonCircle />}
             label="Aula virtual"
-            value={<Link href="/intranet" className="text-blue-700 font-semibold text-base hover:underline">Ingresar</Link>}
+            value={
+              <Link
+                href="/intranet"
+                className="text-blue-700 font-semibold text-base hover:underline"
+              >
+                Ingresar
+              </Link>
+            }
           />
           <ContactItem
             icon={<MdEmail className="text-blue-600" />}
@@ -129,22 +146,53 @@ const Header = () => {
             value="admisiones@paradise.edu.pe"
           />
         </div>
+
+        {/* Redes sociales con enlaces externos */}
         <div className="flex items-center gap-3 text-black">
-          {[FaFacebookF, FaInstagram, FaTiktok, FaYoutube].map((Icon, idx) => (
-            <Icon key={idx} className="cursor-pointer hover:opacity-75" />
-          ))}
+          <a
+            href="https://www.facebook.com/CDanielGoleman"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebookF className="cursor-pointer hover:opacity-75" />
+          </a>
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram className="cursor-pointer hover:opacity-75" />
+          </a>
+          <a
+            href="https://www.tiktok.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaTiktok className="cursor-pointer hover:opacity-75" />
+          </a>
+          <a
+            href="https://www.youtube.com/@ColegioDanielGoleman"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaYoutube className="cursor-pointer hover:opacity-75" />
+          </a>
         </div>
       </div>
 
-      <nav className="bg-gradient-to-r from-[#02042B] to-[#004A9C] py-2 hidden md:flex justify-center gap-6 text-white font-semibold text-sm">
+      {/* Navbar principal */}
+      <nav className="bg-cyan-600 py-2 hidden md:flex justify-center gap-6 text-white font-semibold text-sm">
         <NavLinks />
         <Link href="/login">
           <IoPersonCircle className="text-xl ml-4" />
         </Link>
       </nav>
 
+      {/* Drawer lateral para móvil */}
       <div
-        className={`fixed top-0 left-0 h-full w-72 bg-blue-100 z-50 shadow-lg transform transition-transform duration-300 ${isDrawerOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed top-0 left-0 h-full w-72 bg-blue-100 z-50 shadow-lg transform transition-transform duration-300 ${
+          isDrawerOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
         <div className="flex justify-between items-center p-4 bg-blue-600 text-white">
           <Link
@@ -173,7 +221,8 @@ const Header = () => {
                 className="w-full bg-blue-600 text-white rounded px-4 py-2 flex justify-between items-center"
               >
                 <span>{name}</span>
-                {subItems && (activeDropdown === name ? <IoChevronUp /> : <IoChevronDown />)}
+                {subItems &&
+                  (activeDropdown === name ? <IoChevronUp /> : <IoChevronDown />)}
               </button>
               {activeDropdown === name && subItems && (
                 <div className="pl-4 pt-2 space-y-1">
@@ -203,7 +252,15 @@ const Header = () => {
   );
 };
 
-const ContactItem = ({ icon, label, value }: { icon: React.ReactNode; label: string; value: React.ReactNode | string }) => (
+const ContactItem = ({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: React.ReactNode | string;
+}) => (
   <div className="flex items-center gap-2 px-4 text-black/80">
     {icon}
     <div className="flex flex-col leading-tight">

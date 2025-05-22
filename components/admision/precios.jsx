@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 
 const MatriculaPension = () => {
   const data = [
@@ -21,35 +24,33 @@ const MatriculaPension = () => {
   ];
 
   return (
-    <section className="w-full py-12 px-4 bg-transparent text-center">
-      <h2 className="text-3xl sm:text-4xl font-bold text-green-700 mb-10">
-        Matrícula y pensión
+    <section className="w-full py-16 px-6 bg-transparent text-center">
+      <h2 className="text-3xl sm:text-4xl font-extrabold text-blue-700 mb-10">
+        Matrícula y Pensión Escolar
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {data.map((item, index) => (
-          <div
+          <motion.div
             key={index}
-            className="border border-gray-200 p-6 bg-transparent rounded shadow-sm"
+            whileHover={{ scale: 1.05 }}
+            className="border border-blue-100 p-6 rounded-lg bg-gradient-to-br from-blue-50 to-cyan-50 shadow-sm"
           >
-            <h3 className="text-sm font-bold text-gray-700 mb-4">
+            <h3 className="text-base font-semibold text-blue-800 mb-3">
               {item.title}
             </h3>
-            <p className="text-3xl font-semibold text-gray-800">{item.value}</p>
-          </div>
+            <p className="text-2xl font-bold text-[#124559]">{item.value}</p>
+          </motion.div>
         ))}
       </div>
 
-      <div className="max-w-3xl mx-auto mt-8 text-sm text-gray-600 leading-relaxed">
+      <div className="max-w-3xl mx-auto mt-10 text-sm text-gray-600 leading-relaxed">
         <p>
           Consulta por nuestros beneficios y opciones de fraccionamiento. Aplica
-          para hermanos de familias matriculadas en Áleph, familias matriculadas en
-          la Casa Amarilla, colaboradores y nuevos postulantes.
+          para hermanos de familias matriculadas, colaboradores y nuevos postulantes.
         </p>
         <p className="mt-4">
-          El proceso de admisión en Áleph se encuentra abierto para el año escolar
-          2024, 2025 y 2026. Las vacantes son limitadas y sujetas a los aforos por
-          clase.
+          El proceso de admisión se encuentra abierto para los años escolares 2024, 2025 y 2026. Vacantes sujetas a aforo.
         </p>
       </div>
     </section>
