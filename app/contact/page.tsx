@@ -1,31 +1,48 @@
-"use client"
+"use client";
 
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import { useForm } from "react-hook-form";
+import { Button } from "@nextui-org/react";
 import { motion } from "framer-motion";
 
 const SERVICE_ID = "service_kyq65dd";
 const TEMPLATE_ID = "template_g4fyjqe";
-const USER_ID = "wPFS8-SDiJU5s3tun"; // Puedes usar tu Public Key aquí también
+const USER_ID = "wPFS8-SDiJU5s3tun";
+
+interface FormData {
+  nombres: string;
+  celular: string;
+  correo: string;
+  mensaje: string;
+}
 
 const ContactoPage = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState("idle");
+  const [sending, setSending] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>();
+
+  const onSubmit = () => {
     if (!formRef.current) return;
-    setStatus("loading");
+    setSending(true);
 
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, USER_ID)
       .then(() => {
-        setStatus("success");
-        formRef.current?.reset();
-        setTimeout(() => setStatus("idle"), 3000);
+        setSending(false);
+        setShowAlert(true);
+        reset();
+        setTimeout(() => setShowAlert(false), 4000);
       })
       .catch(() => {
-        setStatus("error");
+        setSending(false);
       });
   };
 
@@ -41,46 +58,86 @@ const ContactoPage = () => {
           ¡Contáctanos!
         </h2>
 
-        <form ref={formRef} onSubmit={onSubmit} className="space-y-8">
-          <motion.div whileFocus={{ scale: 1.01 }} className="group">
-            <label className="text-blue-900 font-semibold text-lg">Tu nombre</label>
-            <input name="nombre" type="text" required className="styled-input" />
-          </motion.div>
-          <motion.div whileFocus={{ scale: 1.01 }} className="group">
-            <label className="text-blue-900 font-semibold text-lg">Tu correo</label>
-            <input name="email" type="email" required className="styled-input" />
-          </motion.div>
-          <motion.div whileFocus={{ scale: 1.01 }} className="group">
-            <label className="text-blue-900 font-semibold text-lg ">Tu mensaje</label>
-            <textarea name="mensaje" rows={5} required className="styled-input text-black" />
-          </motion.div>
+        <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <div className="space-y-4 w-full">
+            <div>
+              <label className="block text-gray-700 font-medium">Nombres</label>
+              <input
+                {...register("nombres", { required: true })}
+                type="text"
+                className="w-full px-4 py-2 text-gray-800 bg-white border-2 border-blue-500 rounded-md shadow-md focus:outline-none focus:ring focus:ring-blue-500"
+                placeholder="Nombres completos"
+              />
+              {errors.nombres && (
+                <span className="text-red-500 text-sm">Este campo es obligatorio</span>
+              )}
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium">N° Celular</label>
+              <input
+                {...register("celular", { required: true, pattern: /^\d{9}$/ })}
+                type="text"
+                className="w-full px-4 py-2 text-gray-800 bg-white border-2 border-blue-500 rounded-md shadow-md focus:outline-none focus:ring focus:ring-blue-500"
+                placeholder="999 999 999"
+              />
+              {errors.celular && (
+                <span className="text-red-500 text-sm">
+                  Introduce un número de celular válido
+                </span>
+              )}
+            </div>
+          </div>
 
-          <input type="hidden" name="date" value={new Date().toLocaleString()} />
+          <div>
+            <label className="block text-gray-700 font-medium">Email</label>
+            <input
+              {...register("correo", {
+                required: true,
+                pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+              })}
+              type="email"
+              className="w-full px-4 py-2 text-gray-800 bg-white border-2 border-blue-500 rounded-md shadow-md focus:outline-none focus:ring focus:ring-blue-500"
+              placeholder="Ej: ejemplo@gmail.com"
+            />
+            {errors.correo && (
+              <span className="text-red-500 text-sm">
+                Introduce un correo electrónico válido
+              </span>
+            )}
+          </div>
 
-          <motion.button
+          <div>
+            <label className="block text-gray-700 font-medium">Mensaje</label>
+            <textarea
+              {...register("mensaje", { required: true })}
+              className="w-full h-32 px-4 py-2 text-gray-800 bg-white border-2 border-blue-500 rounded-md shadow-md focus:outline-none focus:ring focus:ring-blue-500"
+              placeholder="Escribe tu mensaje aquí..."
+            />
+            {errors.mensaje && (
+              <span className="text-red-500 text-sm">Este campo es obligatorio</span>
+            )}
+          </div>
+
+          <Button
             type="submit"
-            disabled={status === "loading"}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-black font-bold text-xl shadow-lg hover:opacity-90 transition duration-300"
+            disabled={sending}
+            className="w-full bg-blue-800 text-white py-2 rounded-md hover:bg-blue-500"
           >
-            {status === "loading" ? "Enviando..." : "Enviar mensaje"}
-          </motion.button>
-
-          {status === "success" && (
-            <p className="text-green-600 text-center font-semibold animate-pulse mt-4">
-              ¡Mensaje enviado correctamente!
-            </p>
-          )}
-          {status === "error" && (
-            <p className="text-red-600 text-center font-semibold animate-shake mt-4">
-              Hubo un error, intenta nuevamente.
-            </p>
-          )}
+            {sending ? "Enviando..." : "Enviar mensaje"}
+          </Button>
         </form>
+
+        {showAlert && (
+          <div
+            className="mt-4 p-4 text-green-800 bg-green-100 border-l-4 border-green-500 rounded-lg"
+            role="alert"
+          >
+            ¡Correo enviado con éxito!
+          </div>
+        )}
       </motion.section>
 
-
+      {/* Mapa y sección de información de contacto sin cambios */}
       <motion.section
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
@@ -134,32 +191,13 @@ const ContactoPage = () => {
               <a href="#" className="hover:text-blue-600 transition"><i className="fab fa-facebook"></i> Facebook</a>
               <a href="#" className="hover:text-pink-500 transition"><i className="fab fa-instagram"></i> Instagram</a>
               <a href="#" className="hover:text-gray-700 transition"><i className="fab fa-tiktok"></i> TikTok</a>
-              <a href="#" className="hover:text-red-600 transition"><i className="fab fa-youtube"></i> YouTube</a>
+              <a href="#" className="hover{text-red-600 transition"><i className="fab fa-youtube"></i> YouTube</a>
             </div>
           </div>
         </div>
       </motion.section>
 
       <style jsx>{`
-        .styled-input {
-          width: 100%;
-          padding: 1rem 1.25rem;
-          border: 2px solid #d1d5db;
-          border-radius: 0.75rem;
-          font-size: 1rem;
-          transition: all 0.3s ease;
-          background-color: #fefefe;
-        }
-        .styled-input:focus {
-          outline: none;
-          border-color: #7c3aed;
-          box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.2);
-        }
-        .group {
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-        }
         .animate-border {
           background: linear-gradient(270deg, #8b5cf6, #3b82f6, #6366f1, #ec4899);
           background-size: 800% 800%;
@@ -169,23 +207,13 @@ const ContactoPage = () => {
           animation: floaty 3s ease-in-out infinite;
         }
         @keyframes borderFlow {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
         @keyframes floaty {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-8px);
-          }
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
         }
       `}</style>
     </>

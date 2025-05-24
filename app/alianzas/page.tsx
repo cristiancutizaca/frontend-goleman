@@ -46,7 +46,7 @@ export default function AlianzasEstrategicas() {
         <div className="flex flex-col md:flex-row gap-6 items-start">
           <div className="md:w-1/2">
             <Image
-              src="/images/alianzas/exito.jpg"
+              src="/image/subida.png"
               alt="Preparación para el éxito"
               width={500}
               height={300}
@@ -125,7 +125,7 @@ export default function AlianzasEstrategicas() {
         <div className="flex flex-col md:flex-row gap-6 items-center">
           <div className="md:w-1/2">
             <Image
-              src="/images/alianzas/viaje-estudiantil.jpg"
+              src="/image/viajes.png"
               alt="Viaje estudiantil"
               width={500}
               height={300}
@@ -139,17 +139,13 @@ export default function AlianzasEstrategicas() {
               contextos, aprendiendo en campo abierto y compartiendo experiencias
               memorables.
             </p>
-            <div className="flex gap-4 mt-4">
-              <Image src="/images/alianzas/logo1.png" alt="Logo 1" width={80} height={40} />
-              <Image src="/images/alianzas/logo2.png" alt="Logo 2" width={80} height={40} />
-              <Image src="/images/alianzas/logo3.png" alt="Logo 3" width={80} height={40} />
-            </div>
+
           </div>
         </div>
       </section>
 
       {/* Proyectos en colaboración */}
-      <section className="bg-teal-500 text-white py-16 px-4 md:px-20">
+      <section className="bg-cyan-600 text-white py-16 px-4 md:px-20">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-2/3">
             <h2 className="text-2xl font-bold mb-4">Proyectos en colaboración</h2>
@@ -161,7 +157,7 @@ export default function AlianzasEstrategicas() {
           </div>
           <div className="md:w-1/3">
             <Image
-              src="/images/alianzas/proyectos.jpg"
+              src="/image/colaboracion.png"
               alt="Proyectos en colaboración"
               width={400}
               height={300}

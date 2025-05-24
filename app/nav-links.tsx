@@ -47,7 +47,7 @@ const links: NavLinkItem[] = [
     dropdownContent: [
       { name: "aprendizaje", href: "/aprendizaje" },
       { name: "Admisión", href: "/admision" },
-      { name: "Teléfonos", href: "/contact" },
+      { name: "Alianzas", href: "/alianzas" },
     ],
   },
   {
