@@ -23,7 +23,7 @@ import NavLinks from "./nav-links";
 const MOBILE_LINKS = [
   { name: "Inicio", href: "/" },
   {
-    name: "Nosotros",
+    name: "",
     subItems: [
       { name: "Nuestra Escuela", href: "/school" },
       { name: "Equipo Pedagógico", href: "/teacher" },
@@ -31,7 +31,7 @@ const MOBILE_LINKS = [
     ],
   },
   {
-    name: "Niveles",
+    name: "",
     subItems: [
       { name: "Inicial", href: "/inicial" },
       { name: "Primaria", href: "/primaria" },
@@ -39,7 +39,7 @@ const MOBILE_LINKS = [
     ],
   },
   {
-    name: "Propuesta Educativa",
+    name: " ",
     subItems: [
       { name: "Contáctanos", href: "/ContactForm" },
       { name: "Admisión", href: "/admision" },
@@ -47,7 +47,7 @@ const MOBILE_LINKS = [
     ],
   },
   {
-    name: "Contacto",
+    name: "",
     subItems: [
       { name: "Formulario", href: "/contacto/formulario" },
       { name: "Mapa", href: "/contacto/mapa" },
@@ -55,14 +55,14 @@ const MOBILE_LINKS = [
     ],
   },
   {
-    name: "Blog",
+    name: "",
     subItems: [
       { name: "Artículos recientes", href: "/blog" },
       { name: "Eventos", href: "/eventos" },
     ],
   },
   {
-    name: "Trabaja Con Nosotros",
+    name: "  ",
     subItems: [
       { name: "Convocatorias", href: "/trabaja/convocatorias" },
       { name: "Postula aquí", href: "/trabaja/postula" },
@@ -125,25 +125,25 @@ const Header = () => {
         <div className="hidden md:flex items-center divide-x divide-gray-300">
           <ContactItem
             icon={<FiPhoneCall />}
-            label="Comunícate"
-            value="905 474 148"
+            label=""
+            value="996 960 012"
           />
           <ContactItem
             icon={<IoPersonCircle />}
-            label="Aula virtual"
+            label=""
             value={
               <Link
-                href="/intranet"
+                href="https://dg.edu.pe/sistema_resultados_master/"
                 className="text-blue-700 font-semibold text-base hover:underline"
               >
-                Ingresar
+                Aula virtual
               </Link>
             }
           />
           <ContactItem
             icon={<MdEmail className="text-blue-600" />}
-            label="Email"
-            value="admisiones@paradise.edu.pe"
+            label=""
+            value="infodgedu@gmail.com"
           />
         </div>
 

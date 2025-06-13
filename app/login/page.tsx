@@ -22,7 +22,7 @@ const Login: React.FC = () => {
   const onSubmit = async () => {
     try {
       const response = await axios.post(
-        "https://backend.inalta.edu.pe/api/v1/user/login",
+        "poner backend aca",
         form
       );
       if (response.data.token) {

@@ -17,7 +17,7 @@ const SocialShowcase = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/events")
+    fetch("https://backend-goleman-production.up.railway.app")
       .then((res) => res.json())
       .then((data) => {
         setEventos(data);

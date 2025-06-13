@@ -1,27 +1,27 @@
 import Image from "next/image";
 
-export default function SchoolLandingPage() {
+export default function InicialLandingPage() {
   return (
-    <main className="font-sans text-[#4b5842] bg-white">
+    <main className="font-sans text-[#4b5842] bg-[#FFFBE6]">
 
       {/* === Hero Section === */}
       <section className="flex flex-col lg:flex-row min-h-[600px]">
-        <div className="flex-1 flex items-center justify-center bg-[#f7f2f2] relative min-h-[300px]">
-          <div className="absolute inset-0 bg-[#f7f2f2] z-0" />
-          <div className="bg-[#5a6652] text-white p-6 md:p-10 max-w-md z-10 w-full md:w-auto">
-            <h2 className="text-2xl md:text-3xl font-bold leading-tight">
-              El programa<br />para<br />inicial
+        <div className="flex-1 flex items-center justify-center bg-[#E3F9F6] relative min-h-[300px]">
+          <div className="absolute inset-0 bg-[#E3F9F6] z-0" />
+          <div className="bg-[#0796B0] text-white p-6 md:p-10 max-w-md z-10 w-full md:w-auto rounded-xl shadow-lg">
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+              Bienvenidos al nivel<br />Inicial 🌼
             </h2>
-            <p className="mt-4 text-[#d1dbe1] text-sm md:text-base">Edible Learning Spaces</p>
-            <button className="mt-6 px-4 py-2 bg-[#fbd7cf] text-[#5a6652] hover:opacity-90 text-sm md:text-base">
-              Learn More
+            <p className="mt-4 text-[#D0F1F9] text-base">Descubriendo el mundo con alegría y amor</p>
+            <button className="mt-6 px-5 py-2 bg-[#FFD166] text-[#054A57] hover:bg-[#ffe18f] rounded text-base font-semibold">
+              Más información
             </button>
           </div>
         </div>
         <div className="flex-1 relative min-h-[300px]">
           <Image
             src="/image/mision.png"
-            alt="Kids with vegetables"
+            alt="Niños felices jugando"
             fill
             priority
             style={{ objectFit: "cover" }}
@@ -29,77 +29,58 @@ export default function SchoolLandingPage() {
         </div>
       </section>
 
-      {/* === Goals Section === */}
+      {/* === Objetivos === */}
       <section className="flex flex-col items-center text-center px-4 py-16 md:py-20">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 relative mb-6">
+        <div className="w-20 h-20 relative mb-6">
           <Image
             src="/image/mision.png"
-            alt="Plant Icon"
+            alt="Icono"
             fill
             style={{ objectFit: "contain" }}
           />
         </div>
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">Nuestros objetivos</h2>
-        <p className="max-w-2xl text-[#7e8a7d] text-sm md:text-base leading-relaxed px-2">
-          I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click
-          "Edit Text" or double click me to add your own content and make changes to the font.
-          I'm a great place for you to tell a story and let your users know a little more about you.
+        <h2 className="text-3xl font-bold text-[#0796B0] mb-4">Nuestros objetivos</h2>
+        <p className="max-w-2xl text-[#4b5842] text-base leading-relaxed px-2">
+          En Inicial, fomentamos la curiosidad natural de los niños con actividades lúdicas, arte, juegos al aire libre y mucho amor. Aquí, cada niño aprende a su propio ritmo en un ambiente seguro y estimulante.
         </p>
       </section>
 
-      {/* === Farm / Learn / Eat Cards === */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-6 pb-20">
-        {["farm", "learn", "eat"].map((type, i) => (
-          <div key={i} className="relative h-[400px] md:h-[500px]">
+      {/* === Sección de Actividades === */}
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 pb-20">
+        {["Exploración", "Arte y Juego", "Nutrición"].map((title, i) => (
+          <div key={i} className="relative h-[400px] md:h-[500px] group rounded-xl overflow-hidden shadow-lg">
             <Image
               src="/image/mision.png"
-              alt={type}
+              alt={title}
               fill
               style={{ objectFit: "cover" }}
             />
-            <div
-              className={`absolute bottom-0 p-6 w-full ${
-                type === "learn" ? "bg-[#fbd7cf] text-[#5a6652]" : "bg-[#5a6652] text-white"
-              }`}
-            >
-              <h3 className="text-lg md:text-xl font-bold capitalize">{type}</h3>
-              <p className="text-sm md:text-base">
-                {type === "farm"
-                  ? "Your fruits and vegetables"
-                  : type === "learn"
-                  ? "About sustainable gardening"
-                  : "Healthier food"}
+            <div className="absolute bottom-0 p-6 w-full bg-[#0796B0]/90 text-white backdrop-blur-sm">
+              <h3 className="text-xl font-bold mb-1">{title}</h3>
+              <p className="text-sm leading-snug">
+                {title === "Exploración"
+                  ? "Juegos, naturaleza y aprendizaje sensorial."
+                  : title === "Arte y Juego"
+                  ? "Colores, manualidades y mucha creatividad."
+                  : "Comida saludable y momentos felices."}
               </p>
-              <p className="text-xs md:text-sm mt-2">
-                I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.
-              </p>
-              <button
-                className={`mt-4 px-4 py-1 text-xs md:text-sm ${
-                  type === "learn" ? "bg-white text-[#5a6652]" : "bg-[#fbd7cf] text-[#5a6652]"
-                }`}
-              >
-                {type === "farm"
-                  ? "Show Me How"
-                  : type === "learn"
-                  ? "Tell Me More"
-                  : "Get Me a Plate"}
+              <button className="mt-4 px-4 py-1 bg-[#FFD166] text-[#054A57] font-semibold rounded hover:bg-[#ffe18f] text-sm">
+                Ver más
               </button>
             </div>
           </div>
         ))}
       </section>
 
-     
-
-      {/* === Follow Us Section === */}
-      <section className="py-16 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-10">Follow Us #Greenify</h2>
+      {/* === Galería === */}
+      <section className="py-16 bg-white text-center">
+        <h2 className="text-3xl font-bold text-[#0796B0] mb-10">Nuestros momentos mágicos ✨</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 px-4">
-          {[...Array(15)].map((_, i) => (
-            <div key={i} className="aspect-square relative">
+          {[...Array(10)].map((_, i) => (
+            <div key={i} className="aspect-square relative rounded-lg overflow-hidden shadow-md">
               <Image
                 src="/image/mision.png"
-                alt={`Gallery ${i + 1}`}
+                alt={`Galería ${i + 1}`}
                 fill
                 style={{ objectFit: "cover" }}
               />
@@ -107,6 +88,7 @@ export default function SchoolLandingPage() {
           ))}
         </div>
       </section>
+
     </main>
   );
 }

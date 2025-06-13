@@ -28,17 +28,14 @@ const links: NavLinkItem[] = [
     dropdownContent: [
       { name: "Nuestra Escuela", href: "/school" },
       { name: "Equipo Pedagógico", href: "/teacher" },
-      { name: "Los líderes", href: "/directorio" },
+      { name: "Los líderes", href: "/directorio" },      
+    { name: "Contáctenos ", href: "/formulario" },
+
     ],
   },
   {
-    name: "Niveles",
-    href: "/app",
-    dropdownContent: [
-      { name: "Inicial", href: "/inicial" },
-      { name: "Primaria", href: "/primaria" },
-      { name: "Secundaria", href: "/secundaria" },
-    ],
+    name: "Admisión",
+    href: "/admision",
   },
   {
     name: "Propuesta Educativa",
@@ -46,27 +43,23 @@ const links: NavLinkItem[] = [
     isBlocked: false,
     dropdownContent: [
       { name: "aprendizaje", href: "/aprendizaje" },
-      { name: "Admisión", href: "/admision" },
       { name: "Alianzas", href: "/alianzas" },
+      { name: "Inicial", href: "/inicial" },
+      { name: "Primaria", href: "/primaria" },
+      { name: "Secundaria", href: "/secundaria" },
     ],
   },
+  
+   {
+    name: "Eventos",
+    href: "/events",
+  },
+  
   {
-    name: "Contacto",
-    href: "/app",
-    dropdownContent: [
-      { name: "Formulario", href: "/contact" },
-      { name: "Mapa", href: "/contact" },
-      { name: "Teléfonos", href: "/contact" },
-    ],
+    name: "Sociales",
+    href: "/SocialShowcase",
   },
-  {
-    name: "Blog",
-    href: "/app",
-    dropdownContent: [
-      { name: "Artículos recientes", href: "/SocialShowcase" },
-      { name: "Eventos", href: "/events" },
-    ],
-  },
+  
   {
     name: "Trabaja Con Nosotros",
     href: "/app",
@@ -128,7 +121,7 @@ const NavLinks = () => {
                   >
                     <div className="absolute -top-2 left-4 w-4 h-4 bg-white rotate-45 border-l border-t border-blue-100 z-[-1]" />
 
-                    <p className="text-sm font-semibold text-blue-900">{link.name} opciones</p>
+                    <p className="text-sm font-semibold text-blue-900"></p>
                     <div className="mt-3 border-t border-gray-200 pt-3 space-y-2 text-sm">
                       {link.dropdownContent.map((item) => (
                         <Link key={item.name} href={item.href} className="block hover:text-blue-600">

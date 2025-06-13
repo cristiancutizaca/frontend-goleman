@@ -6,20 +6,24 @@ import { motion } from "framer-motion";
 const MatriculaPension = () => {
   const data = [
     {
-      title: "Cuota de ingreso 2024–2025–2026",
-      value: "S/ 30,000*",
+      title: "Cuota de ingreso 2025",
+      value: "S/ 0.00",
     },
     {
-      title: "Matrícula y pensión 2024 - 3 años",
-      value: "S/ 1,750",
+      title: "Matrícula 2025 ",
+      value: "S/ 280.00",
+    },,
+    {
+      title: "pension nivel inicial 2025",
+      value: "S/ 310.00",
     },
     {
-      title: "Matrícula y pensión 2024 – Prekinder y kinder",
-      value: "S/ 2,600",
+      title: "pension nivel primaria 2025",
+      value: "S/ 320.00",
     },
     {
-      title: "Matrícula y pensión 2024 – Primaria y secundaria",
-      value: "S/ 3,270",
+      title: "pension nivel secundaria 2025",
+      value: "S/ 330.00",
     },
   ];
 

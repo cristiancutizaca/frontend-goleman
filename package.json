@@ -1,12 +1,13 @@
 {
-  "name": "inalta_frontend",
+  "name": "goleman_frontend",
   "version": "13.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 3005",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",

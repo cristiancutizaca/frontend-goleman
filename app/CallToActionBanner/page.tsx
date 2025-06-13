@@ -40,13 +40,15 @@ const CallToActionBanner = () => {
             href="tel:+51999999999"
             className="flex items-center justify-center gap-2 px-6 py-3 bg-white text-green-700 font-semibold rounded-xl shadow hover:bg-green-100 transition-all"
           >
-            📞 Llámanos: +51 999 999 999
+            📞 Llámanos: +51 996 960 012
+
           </a>
           <a
             href="mailto:contacto@colegiogoleman.edu.pe"
             className="flex items-center justify-center gap-2 px-6 py-3 bg-white text-green-700 font-semibold rounded-xl shadow hover:bg-green-100 transition-all"
           >
-            ✉️ Escríbenos: contacto@colegiogoleman.edu.pe
+            ✉️ Escríbenos: infodgedu@gmail.com
+
           </a>
           <motion.a
             href="#formulario"

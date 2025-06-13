@@ -15,8 +15,8 @@ const Graduate = () => {
           transition={{ duration: 0.6 }}
           className="text-center w-full max-w-7xl"
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold text-blue-600 mb-12 tracking-tight">
-            Proceso de Admisión
+          <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-12 tracking-tight">
+            Proceso de Admisión 2026
           </h2>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

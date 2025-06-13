@@ -9,10 +9,10 @@ import Documentos from "@/components/admision/documentos";
 const ProcesoAdmision = () => {
   return (
     <div className="space-y-20">
+      <Formulario />
       <Admipros />
       <Precios />
       <Documentos />
-      <Formulario />
     </div>
   );
 };
