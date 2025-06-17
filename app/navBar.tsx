@@ -89,9 +89,8 @@ const Header = () => {
     <>
       {/* Header superior */}
       <div
-        className={`w-full bg-white flex justify-between items-center px-4 md:px-8 py-2 border-b border-gray-300 text-sm transition-all duration-300 ${
-          isScrolled ? "hidden" : "flex"
-        }`}
+        className={`w-full bg-white flex justify-between items-center px-4 md:px-8 py-2 border-b border-gray-300 text-sm transition-all duration-300 ${isScrolled ? "hidden" : "flex"
+          }`}
       >
         <div className="flex items-center gap-2">
           <button
@@ -114,7 +113,7 @@ const Header = () => {
           </Link>
           <div className="flex items-center md:hidden ml-2">
             <Link
-              href="/intranet"
+              href="https://dg.edu.pe/calificaciones/find-result.php"
               className="flex items-center gap-1 text-sm text-blue-700 font-semibold"
             >
               <IoPersonCircle className="text-lg" />
@@ -133,7 +132,7 @@ const Header = () => {
             label=""
             value={
               <Link
-                href="https://dg.edu.pe/sistema_resultados_master/"
+                href="https://dg.edu.pe/calificaciones/find-result.php"
                 className="text-blue-700 font-semibold text-base hover:underline"
               >
                 Aula virtual
@@ -183,16 +182,15 @@ const Header = () => {
       {/* Navbar principal */}
       <nav className="bg-cyan-600 py-2 hidden md:flex justify-center gap-6 text-white font-semibold text-sm">
         <NavLinks />
-        <Link href="/login">
+        <Link href="https://dg.edu.pe/calificaciones/admin-login.php">
           <IoPersonCircle className="text-xl ml-4" />
         </Link>
       </nav>
 
       {/* Drawer lateral para móvil */}
       <div
-        className={`fixed top-0 left-0 h-full w-72 bg-blue-100 z-50 shadow-lg transform transition-transform duration-300 ${
-          isDrawerOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 h-full w-72 bg-blue-100 z-50 shadow-lg transform transition-transform duration-300 ${isDrawerOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="flex justify-between items-center p-4 bg-blue-600 text-white">
           <Link
