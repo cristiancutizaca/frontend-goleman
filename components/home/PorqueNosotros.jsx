@@ -122,7 +122,7 @@ const PorqueNosotros = () => {
         <h2 className="text-3xl md:text-5xl font-extrabold text-blue-900 uppercase mb-4">
           ¿Por qué elegir el Colegio Goleman?
         </h2>
-        <p className="text-white text-lg md:text-xl">
+        <p className="text-slate-700 text-lg md:text-xl">
           En el Colegio Goleman, nos comprometemos con la formación integral de nuestros estudiantes,
           impulsando su desarrollo académico, emocional y personal. Nuestra educación de calidad abre
           puertas a un futuro brillante lleno de oportunidades.

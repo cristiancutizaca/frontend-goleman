@@ -20,3 +20,14 @@ html {
   min-width: 100%; /* Cambiar el ancho mínimo al 100% para que cada item ocupe todo el ancho del contenedor */
   transition: transform 0.5s ease;
 }
+
+
+/* Mejoras base de UX */
+:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.85); /* blue-500 */
+  outline-offset: 3px;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.25);
+}

@@ -25,10 +25,10 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        "service_472ir68", // <- reemplaza con tu service ID
-        "template_iqxsiy8", // <- reemplaza con tu template ID
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_472ir68", // <- reemplaza con tu service ID
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_iqxsiy8", // <- reemplaza con tu template ID
         formRef.current,
-        "wPFS8-SDiJU5s3tun00000000000" // <- reemplaza con tu public key
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "wPFS8-SDiJU5s3tun00000000000" // <- reemplaza con tu public key
       )
       .then(
         () => {

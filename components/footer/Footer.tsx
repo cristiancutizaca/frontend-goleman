@@ -48,7 +48,7 @@ const navSections = [
 
 const Footer = () => {
   return (
-    <footer className="bg-cyan-600  text-white py-16 px-6">
+    <footer className="bg-slate-900 text-white py-16 px-6 border-t border-slate-800">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center">
           <p className="text-lg">Síguenos en nuestras redes sociales</p>

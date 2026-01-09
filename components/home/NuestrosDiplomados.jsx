@@ -4,7 +4,7 @@ import React from "react";
 
 const NuestraHistoria = () => {
   return (
-    <section className="bg-transparent text-white py-16 px-4 lg:px-16">
+    <section className="py-16 px-4 lg:px-16 bg-white text-slate-800">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
         {/* Video */}
         <div className="w-full lg:w-1/2">
@@ -26,7 +26,7 @@ const NuestraHistoria = () => {
             Nuestra historia
           </h2>
 
-          <h3 className="text-xl font-semibold mb-4 text-white">
+          <h3 className="text-xl font-semibold mb-4 text-slate-900">
             Nuestra metodología educativa está alineada con las neurociencias y los últimos
             estudios sobre el aprendizaje efectivo y significativo.
           </h3>

@@ -9,18 +9,17 @@ import Whatsapp from '@/components/whatsapp/Index';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-roboto bg-cyan-600 ">
+    <div className="min-h-screen bg-slate-50 text-slate-900 antialiased">
       <ThemeProvider
         attribute="class"
         defaultTheme="light"
         enableSystem
         disableTransitionOnChange
       >
-
-        <link rel="icon" href="/image/icongole.png" />  {/* Asegúrate de que la ruta sea correcta */}
-        
         <Header />
-        <main>{children}</main>
+        <main id="main-content" className="min-h-[60vh]">
+          {children}
+        </main>
         <Whatsapp />
         <Footer />
         <ScrollToTopButton />

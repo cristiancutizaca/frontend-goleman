@@ -87,7 +87,8 @@ const Header = () => {
 
   return (
     <>
-      {/* Header superior */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-lg">Saltar al contenido</a>
+{/* Header superior */}
       <div
         className={`w-full bg-white flex justify-between items-center px-4 md:px-8 py-2 border-b border-gray-300 text-sm transition-all duration-300 ${isScrolled ? "hidden" : "flex"
           }`}
@@ -180,7 +181,7 @@ const Header = () => {
       </div>
 
       {/* Navbar principal */}
-      <nav className="bg-cyan-600 py-2 hidden md:flex justify-center gap-6 text-white font-semibold text-sm">
+      <nav className="sticky top-0 z-50 bg-slate-900/90 supports-[backdrop-filter]:bg-slate-900/70 backdrop-blur border-b border-slate-800 py-3 hidden md:flex justify-center gap-6 text-white font-semibold text-sm">
         <NavLinks />
         <Link href="https://dg.edu.pe/calificaciones/admin-login.php">
           <IoPersonCircle className="text-xl ml-4" />

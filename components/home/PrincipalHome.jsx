@@ -15,7 +15,7 @@ const mobileImages = [
   "/image/fond-cel.webp",
 ];
 
-const FullScreenCarousel = () => {
+const FullScreenCarousel = ({ className = "" }) => {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -42,7 +42,7 @@ const FullScreenCarousel = () => {
   const currentImages = isMobile ? mobileImages : desktopImages;
 
   return (
-    <div className="relative w-full h-[500px] sm:h-[400px] xs:h-[300px] overflow-hidden">
+    <div className={`relative w-full h-[620px] md:h-[560px] sm:h-[460px] overflow-hidden ${className}`}>
       {currentImages.map((src, i) => (
         <motion.div
           key={i}
